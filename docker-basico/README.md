@@ -6,8 +6,6 @@ Este repositório reúne os exercícios práticos desenvolvidos na **Semana 3** 
 
 ---
 
----
-
 ## 📘 Conceitos Fundamentais
 
 - **Containers vs. Máquinas Virtuais (VMs):** Enquanto as VMs dependem de um _Hypervisor_ e recriam um sistema operacional completo para cada instância (consumindo mais memória e CPU), os containers compartilham o próprio Kernel do sistema operacional hospedeiro (_Kernel Sharing_). Isso torna os containers leves, portáteis e com inicialização em questão de segundos.
