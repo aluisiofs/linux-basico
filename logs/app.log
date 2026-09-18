@@ -1,0 +1,6 @@
+[2026-09-18 10:00:00] INFO Aplicação iniciada com sucesso. 
+[2026-09-18 10:01:15] DEBUG Conexão estabelecida com o banco de dados. 
+[2026-09-18 10:02:30] ERROR Falha ao conectar ao serviço externo de pagamento. 
+[2026-09-18 10:03:00] INFO Nova requisição recebida na rota /api/v1/checkout. 
+[2026-09-18 10:04:12] ERROR Tempo limite de resposta excedido (Timeout). 
+[2026-09-18 10:05:00] WARN Uso de memória acima de 80%.
