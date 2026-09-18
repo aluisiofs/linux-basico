@@ -1,5 +1,9 @@
 # Projeto: Fundamentos de Docker (`docker-basico`)
 
+[![CI - Integração Contínua Docker](https://github.com/SEU\_USUARIO/docker-basico/actions/workflows/ci.yml/badge.svg)](https://github.com/aluisiofs/docker-basico/actions/workflows/ci.yml) 
+
+Este repositório reúne os exercícios práticos desenvolvidos na \*\*Semana 3\*\* e \*\*Semana 4
+
 Este repositório reúne os exercícios práticos desenvolvidos na **Semana 3** da Trilha DevOps Junior NTT Data, com foco na conteinerização de aplicações utilizando **Docker**.
 
 ---
