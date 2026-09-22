@@ -1,4 +1,3 @@
-```yaml
 name: CI - Integração Contínua Docker
 
 # Dispara a pipeline a cada push na branch main
