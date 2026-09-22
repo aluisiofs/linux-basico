@@ -1,37 +1,39 @@
+```yaml
 name: CI - Integração Contínua Docker
- 
-# Dispara a pipeline a cada push na branch main 
-on: 
-  push: 
-    branches: [ "main" ] 
 
-jobs: 
-  build-and-test: 
-    runs-on: ubuntu-latest 
+# Dispara a pipeline a cada push na branch main
+on:
+  push:
+    branches: ["main"]
 
-steps: 
-      # 1\. Baixa o código-fonte do repositório 
-      - name: Checkout do Código 
-       uses: actions/checkout@v3
- 
-      # 2\. Configura o ambiente Node.js 
-      - name: Configurar Node.js 
-      uses: actions/setup-node@v3 
-      with: 
-        node-version: '18' 
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
 
-      # 3\. Instala as dependências da aplicação 
-      - name: Instalar Dependências 
-      run: | 
-        cd docker-basico 
-        npm install
- 
-      # 4\. Executa os testes automatizados da aplicação  
-      - name: Executar Testes Automatizados 
-      run: | 
-        cd docker-basico 
-        node -c app.js
- 
-       # 5\. Constrói a imagem Docker a partir do Dockerfile 
-       - name: Build da Imagem Docker 
-       run: docker build -t nttdata-servidor:ci ./docker-basico
+    steps:
+      # 1. Baixa o código-fonte do repositório
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
+      # 2. Configura o ambiente Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # 3. Instala as dependências da aplicação
+      - name: Instalar Dependências
+        run: |
+          cd docker-basico
+          npm install
+
+      # 4. Executa os testes automatizados da aplicação
+      - name: Executar Testes Automatizados
+        run: |
+          cd docker-basico
+          node -c app.js
+
+      # 5. Constrói a imagem Docker a partir do Dockerfile
+      - name: Build da Imagem Docker
+        run: docker build -t nttdata-servidor:ci ./docker-basico
+```
