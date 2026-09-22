@@ -3,7 +3,6 @@
 Este repositório reúne os exercícios práticos desenvolvidos na **Semana 1** da Trilha DevOps Junior NTT Data.
 
 O objetivo principal é consolidar o domínio dos comandos essenciais de terminal Linux utilizados para administração de sistemas, análise de logs e automação.
-
 ---
 
 ## 🛠️ Comandos Praticados e Aplicação em DevOps
@@ -17,3 +16,4 @@ O objetivo principal é consolidar o domínio dos comandos essenciais de termina
 ```bash
 mkdir -p logs/antigos
 ```
+
