@@ -35,4 +35,3 @@ jobs:
       # 5. Constrói a imagem Docker a partir do Dockerfile
       - name: Build da Imagem Docker
         run: docker build -t nttdata-servidor:ci ./docker-basico
-```
