@@ -14,12 +14,13 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./projeto-integrado
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
-
-      - name: Listar ficheiros na raiz (Depuração)
-        run: ls -la
 
       - name: Validar sintaxe do Docker Compose
         run: docker compose config
