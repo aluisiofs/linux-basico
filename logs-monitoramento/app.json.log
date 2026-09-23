@@ -1,0 +1,5 @@
+{"timestamp": "2026-09-22T15:00:01Z", "level": "INFO", "service": "web-frontend", "http\_status": 200, "message": "Página inicial acessada com sucesso", "latency\_ms": 45} 
+{"timestamp": "2026-09-22T15:01:12Z", "level": "INFO", "service": "auth-service", "http\_status": 200, "message": "Usuário 'aluisiofs' autenticado com sucesso", "latency\_ms": 110} 
+{"timestamp": "2026-09-22T15:02:45Z", "level": "WARN", "service": "payment-api", "http\_status": 429, "message": "Limite de requisições por minuto atingido (Rate Limit)", "latency\_ms": 320} 
+{"timestamp": "2026-09-22T15:03:10Z", "level": "ERROR", "service": "payment-api", "http\_status": 500, "message": "Timeout de conexão ao tentar comunicar com gateway de pagamento", "latency\_ms": 5000} 
+{"timestamp": "2026-09-22T15:04:00Z", "level": "ERROR", "service": "db-service"
