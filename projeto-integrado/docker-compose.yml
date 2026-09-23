@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+
+  # Aplicação Web / API
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app_integrada
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=devops_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - db
+    networks:
+      - rede_integrada
+    restart: always
+
+  # Banco de Dados PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: db_integrado
+    environment:
+      - POSTGRES_DB=devops_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - rede_integrada
+    restart: always
+
+networks:
+  rede_integrada:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local
