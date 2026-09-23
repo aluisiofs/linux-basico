@@ -1,5 +1,6 @@
 name: CI - Projeto Integrado Semana 7
 
+# Controla quando o workflow será executado
 on:
   push:
     branches:
@@ -12,19 +13,52 @@ on:
 
 jobs:
   build-and-test:
+    name: Build e Validação Docker
     runs-on: ubuntu-latest
 
+    # -------------------------------------------------------------------------
+    # BOAS PRÁTICAS (DevOps 2026)
+    # -------------------------------------------------------------------------
+    
+    # 1. Segurança (DevSecOps): Princípio do Menor Privilégio. 
+    # O token do GitHub Actions terá apenas permissão de leitura, impedindo 
+    # que scripts maliciosos alterem o código do repositório.
+    permissions:
+      contents: read
+
+    # 2. Controle de Recursos: Timeout.
+    # Impede que o runner fique preso ao infinito (por exemplo, se um comando 
+    # falhar e ficar pendente), economizando os teus minutos gratuitos do GitHub.
+    timeout-minutes: 10
+
+    # 3. Manutenibilidade (DRY - Don't Repeat Yourself).
+    # Todo comando 'run' abaixo será executado automaticamente nesta pasta.
     defaults:
       run:
         working-directory: ./projeto-integrado
 
     steps:
+      # --- PASSO 1: Preparar o ambiente ---
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # --- PASSO 2: Otimização de Build ---
+      # Configura o Docker Buildx. Ele substitui o construtor padrão do Docker 
+      # por um motor mais rápido, que suporta builds paralelos e facilita o uso 
+      # de cache avançado no futuro.
+      - name: Configurar Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # --- PASSO 3: Validação Estática ---
+      # Verifica se há erros de digitação ou indentação no docker-compose.yml 
+      # antes de tentar baixar imagens pesadas.
       - name: Validar sintaxe do Docker Compose
         run: docker compose config
 
+      # --- PASSO 4: Teste de Integração ---
+      # Constrói a imagem da aplicação e sobe os serviços (App + Banco de Dados).
+      # Em seguida, lista os processos para os logs de depuração e, por fim, 
+      # destrói o ambiente para não deixar "lixo" no runner.
       - name: Testar Build e Execução dos Containers
         run: |
           docker compose up -d --build
