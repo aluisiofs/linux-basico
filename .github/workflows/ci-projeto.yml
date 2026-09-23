@@ -18,14 +18,14 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      - name: Listar ficheiros na raiz (Depuração)
+        run: ls -la
+
       - name: Validar sintaxe do Docker Compose
-        run: |
-          cd projeto-integrado
-          docker compose config
+        run: docker compose config
 
       - name: Testar Build e Execução dos Containers
         run: |
-          cd projeto-integrado
           docker compose up -d --build
           docker compose ps
           docker compose down
